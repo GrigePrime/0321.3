@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+#include "Staff.cpp"
+using namespace std;
+
+int main(){
+    int temp;
+    Staff staff_p[5];
+    string newname;
+    string newid;
+    string newgender;
+    string newEmail;
+    int newphonenum;
+    string newunit;
+    string newservice;
+    string newagent;
+    string newdate;
+    string newjob;
+    string date;
+    int dateout;
+    string date1, date2, date3, dateoutput;
+    
+    int seniority;
+    int size[5];
+    cout << "Please enter info:"<<endl;
+    for(int i =1;i<6;i++){
+        cout<<"Staff_"<<i<<endl;
+        cout<<"Name: "<<endl;
+        cin >> newname;
+        cout<<"ID: "<<endl;
+        cin>>newid;
+        cout<<"Gender: "<<endl;
+        cin>>newgender;
+        cout<<"Email: "<<endl;
+        cin>>newEmail;
+        cout<<"Phonenum: "<<endl;
+        cin>>newphonenum;
+        cout<<"Unit: "<<endl;
+        cin>>newunit;
+        cout<<"Service: "<<endl;
+        cin>>newservice;
+        cout<<"Agent: "<<endl;
+        cin>>newagent;
+        cout<<"Date: "<<endl;
+        cin>>newdate;
+        cout<<"Job: "<<endl;
+        cin>>newjob;
+        staff_p[i].setname(newname);
+        staff_p[i].setid(newid);
+        staff_p[i].setgender(newgender);
+        staff_p[i].setEmail(newEmail);
+        
+        staff_p[i].setphonenum(newphonenum);
+        staff_p[i].setunit(newunit);
+        
+        staff_p[i].setservice(newservice);
+        staff_p[i].setagent(newagent);
+        staff_p[i].setdate(newdate);
+        staff_p[i].setjob(newjob);
+        
+        staff_p[i].cut(date,dateout,date1, date2, date3, dateoutput);
+        int today = 20220321;
+        staff_p[i].seniortycul(dateout, today);
+        
+        staff_p[i].showinfo();
+        size[i] = seniority;
+        
+        }
+       
+        for(int i = 1;i<6;i++){
+        for(int j = 0;j<5;j++){
+            if(size[i] < size[j+1]){
+                temp = size[j+1];
+                size[j+1] = size[j];
+                size[j] = temp;
+            }
+        }
+        cout<< "seniority rank: "<<endl;
+        for(int i =1;i <6;i++){
+            cout<<i<<"."<<staff_p[i].showname()<<endl;
+        }
+    }
+}
